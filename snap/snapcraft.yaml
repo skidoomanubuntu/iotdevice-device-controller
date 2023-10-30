@@ -9,8 +9,8 @@ description: |
 grade: stable
 confinement: strict
 
-architectures:
-  - build-on: arm64
+#architectures:
+#  - build-on: arm64
 
 
 apps:
