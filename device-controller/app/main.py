@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from random import *
 
 BATTERY_LEVEL = 90
+MAX_SPEED = 140
+# Valid values for dashboard are red and green. Anything else will trigger an error 
+DASHBOARD_COLOR = 'blue'
 
 app = FastAPI()
 
@@ -20,7 +23,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+def getSpeed(maxSpeed):
+    return randint(0, maxSpeed)
+
 @app.get("/battery-level")
 def batteryLevel():
     return {"battery": BATTERY_LEVEL}
+
+@app.get("/dashboard-color")
+def color():
+    return {"color": DASHBOARD_COLOR}
+
+@app.get("/current-speed")
+def speed():
+    return {"speed": getSpeed(MAX_SPEED)}
 
