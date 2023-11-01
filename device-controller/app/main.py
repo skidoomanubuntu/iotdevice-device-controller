@@ -4,15 +4,15 @@ from random import *
 
 BATTERY_LEVEL = 90
 MAX_SPEED = 140
-# Valid values for dashboard are red and green. Anything else will trigger an error 
-DASHBOARD_COLOR = 'blue'
+# Valid values for dashboard are red, green and blue. Anything else will trigger an error 
+DASHBOARD_COLOR = 'ondrej'
 
 app = FastAPI()
 
 origins = [
     "http://localhost",
-    "http://localhost:4000",
-    "http://127.0.0.1:4000",
+    "http://localhost:4001",
+    "http://127.0.0.1:4001",
 ]
 
 app.add_middleware(
@@ -24,6 +24,7 @@ app.add_middleware(
 )
 
 def getSpeed(maxSpeed):
+    #return 140
     return randint(0, maxSpeed)
 
 @app.get("/battery-level")
