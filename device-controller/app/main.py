@@ -5,7 +5,7 @@ from random import *
 BATTERY_LEVEL = 90
 MAX_SPEED = 140
 # Valid values for dashboard are red, green and blue. Anything else will trigger an error 
-DASHBOARD_COLOR = 'ondrej'
+DASHBOARD_COLOR = 'blue'
 
 app = FastAPI()
 
@@ -17,7 +17,7 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
